@@ -19,7 +19,6 @@ load_dotenv()
 api_key = os.getenv("GEMINI_API_KEY")
 
 client = genai.Client(api_key=api_key)
-#client = genai.Client(api_key='AIzaSyCEIR96N-dRED7dN_n7Q8bW4zlsxRIhSeg')
 
 
 HTML_TEMPLATE = """
@@ -144,7 +143,7 @@ HTML_TEMPLATE = """
         
         <div class="loading" id="loading">
             <div class="spinner"></div>
-            <p>Analyzing resume with AI...</p>
+            <p>Analyzing resume...</p>
         </div>
         
         <div class="error" id="error"></div>
@@ -270,9 +269,6 @@ def extract_text_from_pdf(pdf_file):
     except Exception as e:
         raise Exception(f"Error reading PDF: {str(e)}")
     
-
-
-
 def parse_resume_with_gemini(resume_text):
     """Parse resume using Gemini AI"""
     prompt = f"""
